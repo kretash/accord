@@ -1,0 +1,444 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="include">
+      <UniqueIdentifier>{89AF369E-F58E-B539-FEA6-40106A051C9B}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="include\glm">
+      <UniqueIdentifier>{6583D931-D138-5227-5A2D-4CFEC6E1482B}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="include\glm\detail">
+      <UniqueIdentifier>{74C53704-60A9-F859-C909-F3ACB50CE3DB}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="include\imgui">
+      <UniqueIdentifier>{00A46C0E-6C64-E844-359F-31C2A11E2D21}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="include\imgui\extra_fonts">
+      <UniqueIdentifier>{495B131A-B51D-47A4-FECD-D5306ACF1F82}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="include\accord">
+      <UniqueIdentifier>{71A0A0C8-5D6E-94CE-4602-05F5326F7033}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="include\GL">
+      <UniqueIdentifier>{B8FFB8DA-A4B7-FA27-0DBF-D383F9959518}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="include\glm\simd">
+      <UniqueIdentifier>{8E159EC7-7A0E-BD19-A340-A29E8F989C25}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="include\SDL">
+      <UniqueIdentifier>{0829D931-74DE-5127-FDD2-4BFE6987482B}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="include\stb">
+      <UniqueIdentifier>{6EB7D931-DA6C-5227-6361-4CFECF15492B}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src">
+      <UniqueIdentifier>{2DAB880B-99B4-887C-2230-9F7C8E38947C}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\accord">
+      <UniqueIdentifier>{959BB6D6-8153-F823-EA5A-D17FD6319314}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\include\accord\accord.h">
+      <Filter>include\accord</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\accord\camera.h">
+      <Filter>include\accord</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\accord\context.h">
+      <Filter>include\accord</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\accord\context_instance.h">
+      <Filter>include\accord</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\accord\editor.h">
+      <Filter>include\accord</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\accord\gl_helper.h">
+      <Filter>include\accord</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\accord\hierarchy.h">
+      <Filter>include\accord</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\accord\input.h">
+      <Filter>include\accord</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\accord\teapot.h">
+      <Filter>include\accord</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\accord\voxelizer.h">
+      <Filter>include\accord</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\GL\eglew.h">
+      <Filter>include\GL</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\GL\glew.h">
+      <Filter>include\GL</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\GL\glxew.h">
+      <Filter>include\GL</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\GL\wglew.h">
+      <Filter>include\GL</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\glm\simd\common.h">
+      <Filter>include\glm\simd</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\glm\simd\exponential.h">
+      <Filter>include\glm\simd</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\glm\simd\geometric.h">
+      <Filter>include\glm\simd</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\glm\simd\integer.h">
+      <Filter>include\glm\simd</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\glm\simd\matrix.h">
+      <Filter>include\glm\simd</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\glm\simd\packing.h">
+      <Filter>include\glm\simd</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\glm\simd\platform.h">
+      <Filter>include\glm\simd</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\glm\simd\trigonometric.h">
+      <Filter>include\glm\simd</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\glm\simd\vector_relational.h">
+      <Filter>include\glm\simd</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\imgui\imconfig.h">
+      <Filter>include\imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\imgui\imgui.h">
+      <Filter>include\imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\imgui\imgui_impl_sdl_gl3.h">
+      <Filter>include\imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\imgui\imgui_internal.h">
+      <Filter>include\imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\imgui\stb_rect_pack.h">
+      <Filter>include\imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\imgui\stb_textedit.h">
+      <Filter>include\imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\imgui\stb_truetype.h">
+      <Filter>include\imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\SDL\begin_code.h">
+      <Filter>include\SDL</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\SDL\close_code.h">
+      <Filter>include\SDL</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\SDL\SDL.h">
+      <Filter>include\SDL</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\SDL\SDL_assert.h">
+      <Filter>include\SDL</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\SDL\SDL_atomic.h">
+      <Filter>include\SDL</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\SDL\SDL_audio.h">
+      <Filter>include\SDL</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\SDL\SDL_bits.h">
+      <Filter>include\SDL</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\SDL\SDL_blendmode.h">
+      <Filter>include\SDL</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\SDL\SDL_clipboard.h">
+      <Filter>include\SDL</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\SDL\SDL_config.h">
+      <Filter>include\SDL</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\SDL\SDL_cpuinfo.h">
+      <Filter>include\SDL</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\SDL\SDL_egl.h">
+      <Filter>include\SDL</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\SDL\SDL_endian.h">
+      <Filter>include\SDL</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\SDL\SDL_error.h">
+      <Filter>include\SDL</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\SDL\SDL_events.h">
+      <Filter>include\SDL</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\SDL\SDL_filesystem.h">
+      <Filter>include\SDL</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\SDL\SDL_gamecontroller.h">
+      <Filter>include\SDL</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\SDL\SDL_gesture.h">
+      <Filter>include\SDL</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\SDL\SDL_haptic.h">
+      <Filter>include\SDL</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\SDL\SDL_hints.h">
+      <Filter>include\SDL</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\SDL\SDL_joystick.h">
+      <Filter>include\SDL</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\SDL\SDL_keyboard.h">
+      <Filter>include\SDL</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\SDL\SDL_keycode.h">
+      <Filter>include\SDL</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\SDL\SDL_loadso.h">
+      <Filter>include\SDL</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\SDL\SDL_log.h">
+      <Filter>include\SDL</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\SDL\SDL_main.h">
+      <Filter>include\SDL</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\SDL\SDL_messagebox.h">
+      <Filter>include\SDL</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\SDL\SDL_mouse.h">
+      <Filter>include\SDL</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\SDL\SDL_mutex.h">
+      <Filter>include\SDL</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\SDL\SDL_name.h">
+      <Filter>include\SDL</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\SDL\SDL_opengl.h">
+      <Filter>include\SDL</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\SDL\SDL_opengles.h">
+      <Filter>include\SDL</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\SDL\SDL_opengles2.h">
+      <Filter>include\SDL</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\SDL\SDL_opengles2_gl2.h">
+      <Filter>include\SDL</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\SDL\SDL_opengles2_gl2ext.h">
+      <Filter>include\SDL</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\SDL\SDL_opengles2_gl2platform.h">
+      <Filter>include\SDL</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\SDL\SDL_opengles2_khrplatform.h">
+      <Filter>include\SDL</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\SDL\SDL_opengl_glext.h">
+      <Filter>include\SDL</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\SDL\SDL_pixels.h">
+      <Filter>include\SDL</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\SDL\SDL_platform.h">
+      <Filter>include\SDL</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\SDL\SDL_power.h">
+      <Filter>include\SDL</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\SDL\SDL_quit.h">
+      <Filter>include\SDL</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\SDL\SDL_rect.h">
+      <Filter>include\SDL</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\SDL\SDL_render.h">
+      <Filter>include\SDL</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\SDL\SDL_revision.h">
+      <Filter>include\SDL</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\SDL\SDL_rwops.h">
+      <Filter>include\SDL</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\SDL\SDL_scancode.h">
+      <Filter>include\SDL</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\SDL\SDL_shape.h">
+      <Filter>include\SDL</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\SDL\SDL_stdinc.h">
+      <Filter>include\SDL</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\SDL\SDL_surface.h">
+      <Filter>include\SDL</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\SDL\SDL_system.h">
+      <Filter>include\SDL</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\SDL\SDL_syswm.h">
+      <Filter>include\SDL</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\SDL\SDL_test.h">
+      <Filter>include\SDL</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\SDL\SDL_test_assert.h">
+      <Filter>include\SDL</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\SDL\SDL_test_common.h">
+      <Filter>include\SDL</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\SDL\SDL_test_compare.h">
+      <Filter>include\SDL</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\SDL\SDL_test_crc32.h">
+      <Filter>include\SDL</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\SDL\SDL_test_font.h">
+      <Filter>include\SDL</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\SDL\SDL_test_fuzzer.h">
+      <Filter>include\SDL</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\SDL\SDL_test_harness.h">
+      <Filter>include\SDL</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\SDL\SDL_test_images.h">
+      <Filter>include\SDL</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\SDL\SDL_test_log.h">
+      <Filter>include\SDL</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\SDL\SDL_test_md5.h">
+      <Filter>include\SDL</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\SDL\SDL_test_random.h">
+      <Filter>include\SDL</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\SDL\SDL_thread.h">
+      <Filter>include\SDL</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\SDL\SDL_timer.h">
+      <Filter>include\SDL</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\SDL\SDL_touch.h">
+      <Filter>include\SDL</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\SDL\SDL_types.h">
+      <Filter>include\SDL</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\SDL\SDL_version.h">
+      <Filter>include\SDL</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\SDL\SDL_video.h">
+      <Filter>include\SDL</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\stb\stb.h">
+      <Filter>include\stb</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\stb\stb_connected_components.h">
+      <Filter>include\stb</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\stb\stb_c_lexer.h">
+      <Filter>include\stb</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\stb\stb_divide.h">
+      <Filter>include\stb</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\stb\stb_dxt.h">
+      <Filter>include\stb</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\stb\stb_easy_font.h">
+      <Filter>include\stb</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\stb\stb_herringbone_wang_tile.h">
+      <Filter>include\stb</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\stb\stb_image.h">
+      <Filter>include\stb</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\stb\stb_image_resize.h">
+      <Filter>include\stb</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\stb\stb_image_write.h">
+      <Filter>include\stb</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\stb\stb_leakcheck.h">
+      <Filter>include\stb</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\stb\stb_perlin.h">
+      <Filter>include\stb</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\stb\stb_rect_pack.h">
+      <Filter>include\stb</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\stb\stb_sprintf.h">
+      <Filter>include\stb</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\stb\stb_textedit.h">
+      <Filter>include\stb</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\stb\stb_tilemap_editor.h">
+      <Filter>include\stb</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\stb\stb_truetype.h">
+      <Filter>include\stb</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\stb\stb_voxel_render.h">
+      <Filter>include\stb</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\stb\stretchy_buffer.h">
+      <Filter>include\stb</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\tiny_obj_loader.h">
+      <Filter>include</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\include\glm\detail\dummy.cpp">
+      <Filter>include\glm\detail</Filter>
+    </ClCompile>
+    <ClCompile Include="..\include\glm\detail\glm.cpp">
+      <Filter>include\glm\detail</Filter>
+    </ClCompile>
+    <ClCompile Include="..\include\imgui\imgui.cpp">
+      <Filter>include\imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="..\include\imgui\imgui_demo.cpp">
+      <Filter>include\imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="..\include\imgui\imgui_draw.cpp">
+      <Filter>include\imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="..\include\imgui\imgui_impl_sdl_gl3.cpp">
+      <Filter>include\imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="..\include\imgui\extra_fonts\binary_to_compressed_c.cpp">
+      <Filter>include\imgui\extra_fonts</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\accord\accord.cc">
+      <Filter>src\accord</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\accord\camera.cc">
+      <Filter>src\accord</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\accord\context.cc">
+      <Filter>src\accord</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\accord\gl_helper.cc">
+      <Filter>src\accord</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\accord\input.cc">
+      <Filter>src\accord</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\accord\voxelizer.cc">
+      <Filter>src\accord</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>
