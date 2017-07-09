@@ -38,11 +38,11 @@ public:
 	virtual void start() = 0;
 	virtual void prepare() = 0;
 	virtual void update() = 0;
-	virtual void render() = 0;
+	virtual void late_update() = 0;
 	virtual void shutdown() = 0;
 
 protected:
-	std::string m_component_name = "uninitialized";
+	std::string m_component_name = "Component";
 private:
 };
 

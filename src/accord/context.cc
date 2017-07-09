@@ -1,9 +1,12 @@
 #include "accord/context.h"
 #include "accord/accord.h"
+#include "accord/editor.h"
+#include "accord/input.h"
 
 void Context::awake() {
 
 	m_input = std::make_shared<Input>();
+	m_editor = std::make_shared<Editor>(m_window);
 
 	for (Component* comp : m_components) comp->awake();
 
@@ -27,8 +30,14 @@ void Context::update() {
 	running = m_input->quit() == false;
 }
 
-void Context::render() {
-	for (Component* comp : m_components) comp->render();
+void Context::late_update() {
+
+	for (Component* comp : m_components) comp->late_update();
+}
+
+void Context::swap() {
+
+	m_editor->render();
 
 	SDL_GL_SwapWindow(m_window);
 

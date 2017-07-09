@@ -1,15 +1,10 @@
 ﻿
-
-#include <Windows.h>
-#include <iostream>
-#include <math.h>
-#include <iostream>
-#include <fstream>
-
 #define TEMPLATE_FUNCTIONS
+#include "accord/accord.h"
 #include "accord/context.h"
 #include "accord/gl_helper.h"
 #include "accord/input.h"
+#include "accord/editor.h"
 #include "accord/camera.h"
 #include "accord/voxelizer.h"
 #include "accord/hierarchy.h"
@@ -44,18 +39,13 @@ int main(int argc, char** argv) {
 
 	while (context->running) {
 
-		camera->update();
 		context->update();
 		
 		camera->render(program);
-		context->render();
 
-		//
-		//
-
+		context->swap();
 	}
 
 	context->shutdown();
-	//
 	return 0;
 }

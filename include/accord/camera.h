@@ -3,7 +3,7 @@
 #include "accord/accord.h"
 #include "accord/input.h"
 
-class Camera {
+class Camera : virtual public Component {
 public:
 
 	Camera()
@@ -12,7 +12,11 @@ public:
 	}
 	~Camera() {}
 
-	void update() {
+	virtual void awake() {}
+	virtual void start() {}
+	virtual void prepare() {}
+
+	virtual void update() {
 
 		Input* input = get_component<Input>();
 
@@ -72,6 +76,9 @@ public:
 
 		m_view = glm::lookAt(m_eye, m_eye + m_direction, glm::vec3(0.0f, -1.0f, 0.0f));
 	}
+
+	virtual void late_update() {}
+	virtual void shutdown() {}
 
 	glm::mat4 get_view() { return m_view; }
 	glm::mat4 get_proj() { return m_proj; }

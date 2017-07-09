@@ -6,70 +6,32 @@
 #include "imgui/imgui.h"
 #include "imgui/imgui_impl_sdl_gl3.h"
 
+#include "accord/accord.h"
+
 struct mouse {
 	float x = 0.0f, y = 0.0f;
 	bool lmb = false, mmb = false, rmb = false;
 };
 
-class Input : public Component {
+class Input : virtual public Component {
 public:
 
 	Input() {};
 	~Input() {};
 
-	virtual void awake() {};
-	virtual void start() {};
-	virtual void prepare() {};
-	virtual void render() {};
-	virtual void shutdown() {};
+	virtual void awake();
+	virtual void start();
+	virtual void prepare();
+	virtual void update();
+	virtual void late_update();
+	virtual void shutdown();
 
-	virtual void update() {
-		SDL_Event event_;
-		while (SDL_PollEvent(&event_)) {
-			ImGui_ImplSdlGL3_ProcessEvent(&event_);
-			switch (event_.type) {
-			case SDL_QUIT:
-				m_quit = true;
-				break;
-			case SDL_KEYDOWN:
-				if (m_downkeys.find(event_.key.keysym.sym) == m_downkeys.end())
-					m_downkeys.insert(std::make_pair(event_.key.keysym.sym, true));
-				else
-					m_downkeys[event_.key.keysym.sym] = true;
-				break;
-			case SDL_KEYUP:
-				m_downkeys[event_.key.keysym.sym] = false;
-				break;
-			case SDL_MOUSEBUTTONDOWN:
-				m_mouse.lmb |= event_.button.button == SDL_BUTTON_LEFT;
-				m_mouse.mmb |= event_.button.button == SDL_BUTTON_MIDDLE;
-				m_mouse.rmb |= event_.button.button == SDL_BUTTON_RIGHT;
-				break;
-			case SDL_MOUSEBUTTONUP:
-				m_mouse.lmb &= !(event_.button.button == SDL_BUTTON_LEFT);
-				m_mouse.mmb &= !(event_.button.button == SDL_BUTTON_MIDDLE);
-				m_mouse.rmb &= !(event_.button.button == SDL_BUTTON_RIGHT);
-				break;
-			case SDL_MOUSEMOTION:
-				m_mouse.x = (float)event_.button.x;
-				m_mouse.y = (float)event_.button.y;
-			default:
-				break;
-			}
-		}
-	}
-
-	bool key_down(SDL_Keycode key) {
-		auto found = m_downkeys.find(key);
-		if (found == m_downkeys.end()) return false;
-		return m_downkeys[key];
-	}
-
-	mouse get_mouse() { return m_mouse; }
-	bool quit() { return m_quit; }
+	bool         key_down(SDL_Keycode key);
+	mouse        get_mouse();
+	bool         quit();
 
 private:
 	std::map<SDL_Keycode, bool> m_downkeys;
-	bool m_quit = false;
-	mouse m_mouse;
+	bool                        m_quit = false;
+	mouse                       m_mouse;
 };

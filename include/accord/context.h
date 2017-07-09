@@ -7,7 +7,6 @@
 
 #include "accord/accord.h"
 #include "accord/gl_helper.h"
-#include "accord/input.h"
 
 struct render_state {
 	GLuint bound_program = 0;
@@ -16,7 +15,10 @@ struct render_state {
 	GLuint bound_ebuffer = 0;
 };
 
-class Context{
+class Editor;
+class Input;
+
+class Context {
 public:
 	static std::shared_ptr<Context> get_instance() {
 		static std::shared_ptr<Context> m_instance(new Context);
@@ -52,7 +54,10 @@ public:
 	void start();
 	void prepare();
 	void update();
-	void render();
+	void late_update();
+
+	void swap();
+
 	void shutdown();
 
 	bool running = false;
@@ -62,7 +67,7 @@ public:
 
 protected:
 	Context() {
-
+		
 		int sdl_init_ = SDL_Init(SDL_INIT_VIDEO);
 		if (sdl_init_ < 0)
 			std::cout << "SDL error ->" << SDL_GetError() << std::endl;
@@ -91,15 +96,17 @@ protected:
 		glDebugMessageControl(GL_DONT_CARE, GL_DONT_CARE, GL_DONT_CARE, 0, NULL, true);
 #endif
 	}
-
+	std::string m_component_name = "Context";
 private:
 	std::vector<Component*>                        m_components;
 	std::shared_ptr<Input>                         m_input;
+	std::shared_ptr<Editor>                        m_editor;
 	SDL_Window*                                    m_window = nullptr;
 	SDL_GLContext                                  m_gl_context = {};
 
 	std::chrono::high_resolution_clock::time_point m_frame_start;
 
+public:
 	float                                          m_time = 0.0f;
 	float                                          m_last_fps_time = -1.0f;
 	uint64_t                                       m_frame_count = 0;
@@ -121,6 +128,7 @@ std::vector<T*> get_components() {
 }
 
 void add_component_to_context(Component* c) {
+
 	auto ctx = Context::get_instance();
 	ctx->add_component(c);
 }
