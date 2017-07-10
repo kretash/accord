@@ -27,8 +27,8 @@ public:
 	virtual void shutdown();
 
 	bool         key_down(SDL_Keycode key);
-	mouse        get_mouse();
-	bool         quit();
+	mouse        get_mouse() const;
+	bool         quit() const;
 
 private:
 	std::map<SDL_Keycode, bool> m_downkeys;

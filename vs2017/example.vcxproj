@@ -114,6 +114,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="..\include\accord\accord.h" />
+    <ClInclude Include="..\include\accord\actor.h" />
     <ClInclude Include="..\include\accord\camera.h" />
     <ClInclude Include="..\include\accord\context.h" />
     <ClInclude Include="..\include\accord\context_instance.h" />
@@ -121,7 +122,7 @@
     <ClInclude Include="..\include\accord\gl_helper.h" />
     <ClInclude Include="..\include\accord\hierarchy.h" />
     <ClInclude Include="..\include\accord\input.h" />
-    <ClInclude Include="..\include\accord\teapot.h" />
+    <ClInclude Include="..\include\accord\material.h" />
     <ClInclude Include="..\include\accord\voxelizer.h" />
   </ItemGroup>
   <ItemGroup>

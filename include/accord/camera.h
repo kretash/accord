@@ -80,8 +80,8 @@ public:
 	virtual void late_update() {}
 	virtual void shutdown() {}
 
-	glm::mat4 get_view() { return m_view; }
-	glm::mat4 get_proj() { return m_proj; }
+	glm::mat4 get_view() const { return m_view; }
+	glm::mat4 get_proj() const { return m_proj; }
 
 	void render();
 

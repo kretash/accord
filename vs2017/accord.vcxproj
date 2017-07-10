@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="debug|x64">
@@ -60,8 +60,7 @@
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
-      <PrecompiledHeader>
-      </PrecompiledHeader>
+      <PrecompiledHeader></PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
     </ClCompile>
@@ -69,10 +68,10 @@
       <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;WIN32;_DEBUG;DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>..\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
-    <Lib>
-      <OutputFile>$(OutDir)accord-d.lib</OutputFile>
-      <TargetMachine>MachineX64</TargetMachine>
-    </Lib>
+  <Lib>
+    <OutputFile>$(OutDir)accord-d.lib</OutputFile>
+    <TargetMachine>MachineX64</TargetMachine>
+  </Lib>
     <Link>
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
@@ -90,20 +89,18 @@
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
-      <PrecompiledHeader>
-      </PrecompiledHeader>
+      <PrecompiledHeader></PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
-      <DebugInformationFormat>
-      </DebugInformationFormat>
+      <DebugInformationFormat></DebugInformationFormat>
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>WIN32;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>..\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
-    <Lib>
-      <OutputFile>$(OutDir)accord.lib</OutputFile>
-      <TargetMachine>MachineX64</TargetMachine>
-    </Lib>
+  <Lib>
+    <OutputFile>$(OutDir)accord.lib</OutputFile>
+    <TargetMachine>MachineX64</TargetMachine>
+  </Lib>
     <Link>
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>false</GenerateDebugInformation>
@@ -121,7 +118,7 @@
     <ClInclude Include="..\include\accord\gl_helper.h" />
     <ClInclude Include="..\include\accord\hierarchy.h" />
     <ClInclude Include="..\include\accord\input.h" />
-    <ClInclude Include="..\include\accord\teapot.h" />
+    <ClInclude Include="..\include\accord\material.h" />
     <ClInclude Include="..\include\accord\voxelizer.h" />
     <ClInclude Include="..\include\GL\eglew.h" />
     <ClInclude Include="..\include\GL\glew.h" />
@@ -256,20 +253,22 @@
     <ClCompile Include="..\include\imgui\extra_fonts\binary_to_compressed_c.cpp">
       <ObjectFileName>$(IntDir)include\imgui\extra_fonts\</ObjectFileName>
     </ClCompile>
-    <ClCompile Include="..\src\accord\accord.cc">
-      <ObjectFileName>$(IntDir)src\accord\</ObjectFileName>
-    </ClCompile>
     <ClCompile Include="..\src\accord\camera.cc">
       <ObjectFileName>$(IntDir)src\accord\</ObjectFileName>
     </ClCompile>
     <ClCompile Include="..\src\accord\context.cc">
       <ObjectFileName>$(IntDir)src\accord\</ObjectFileName>
     </ClCompile>
-    <ClCompile Include="..\src\accord\editor.cc" />
+    <ClCompile Include="..\src\accord\editor.cc">
+      <ObjectFileName>$(IntDir)src\accord\</ObjectFileName>
+    </ClCompile>
     <ClCompile Include="..\src\accord\gl_helper.cc">
       <ObjectFileName>$(IntDir)src\accord\</ObjectFileName>
     </ClCompile>
     <ClCompile Include="..\src\accord\input.cc">
+      <ObjectFileName>$(IntDir)src\accord\</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="..\src\accord\material.cc">
       <ObjectFileName>$(IntDir)src\accord\</ObjectFileName>
     </ClCompile>
     <ClCompile Include="..\src\accord\voxelizer.cc">

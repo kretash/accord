@@ -18,6 +18,13 @@
 #define distance(a,b) std::max( abs(a-b), abs(b-a) )
 
 class Component;
+class Context;
+class Actor;
+class Material;
+class Editor;
+class Input;
+class Hierarchy;
+class MaterialLibrary;
 
 template<typename T>
 T* get_component();

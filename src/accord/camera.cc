@@ -9,8 +9,9 @@ void Camera::render(){
 	glClear( GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT );
 	glEnable( GL_DEPTH_TEST );
 
-	auto renderer = Hierarchy::get_instance();
-	std::vector<Actor*> render_bin = renderer->m_render_bin;
+	auto ctx = Context::get_instance();
+	auto hierarchy = ctx->get_hierarchy();
+	std::vector<Actor*> render_bin = hierarchy->get_render_bin();
 
 	auto context = Context::get_instance();
 	render_state render_state = context->m_render_state;
@@ -21,17 +22,19 @@ void Camera::render(){
 
 		if (c->active() == false) continue;
 
-		if( render_state.bound_program != c->program() ) {
+		// move this elsewhere??
+		int32_t program = c->get_material()->get_program();
+		if( render_state.bound_program != program ) {
 
-			glUseProgram( c->program() );
+			glUseProgram( program );
 
-			GLint view_location = glGetUniformLocation(c->program(), "view");
-			GLint proj_location = glGetUniformLocation(c->program(), "projection");
+			GLint view_location = glGetUniformLocation( program, "view");
+			GLint proj_location = glGetUniformLocation( program, "projection");
 
 			glUniformMatrix4fv(view_location, 1, false, &m_view[0][0]);
 			glUniformMatrix4fv(proj_location, 1, false, &m_proj[0][0]);
 
-			render_state.bound_program = c->program();
+			render_state.bound_program = program;
 		}
 
 		if( render_state.bound_vao != render_bin[i]->m_mesh->m_vao_id ) {
@@ -49,7 +52,7 @@ void Camera::render(){
 			render_state.bound_ebuffer = render_bin[i]->m_mesh->m_index_id;
 		}
 
-		render_bin[i]->bind_model( );
+		render_bin[i]->bind();
 
 		glDrawElements( GL_TRIANGLES, render_bin[i]->m_mesh->m_index_count, GL_UNSIGNED_INT, ( void* ) 0 );
 

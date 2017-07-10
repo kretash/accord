@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
     <Filter Include="include">
@@ -42,6 +42,9 @@
     <ClInclude Include="..\include\accord\accord.h">
       <Filter>include\accord</Filter>
     </ClInclude>
+    <ClInclude Include="..\include\accord\actor.h">
+      <Filter>include\accord</Filter>
+    </ClInclude>
     <ClInclude Include="..\include\accord\camera.h">
       <Filter>include\accord</Filter>
     </ClInclude>
@@ -63,7 +66,7 @@
     <ClInclude Include="..\include\accord\input.h">
       <Filter>include\accord</Filter>
     </ClInclude>
-    <ClInclude Include="..\include\accord\teapot.h">
+    <ClInclude Include="..\include\accord\material.h">
       <Filter>include\accord</Filter>
     </ClInclude>
     <ClInclude Include="..\include\accord\voxelizer.h">
@@ -399,9 +402,6 @@
     <ClInclude Include="..\include\tiny_obj_loader.h">
       <Filter>include</Filter>
     </ClInclude>
-    <ClInclude Include="..\include\accord\actor.h">
-      <Filter>include\accord</Filter>
-    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\include\glm\detail\dummy.cpp">
@@ -425,13 +425,13 @@
     <ClCompile Include="..\include\imgui\extra_fonts\binary_to_compressed_c.cpp">
       <Filter>include\imgui\extra_fonts</Filter>
     </ClCompile>
-    <ClCompile Include="..\src\accord\accord.cc">
-      <Filter>src\accord</Filter>
-    </ClCompile>
     <ClCompile Include="..\src\accord\camera.cc">
       <Filter>src\accord</Filter>
     </ClCompile>
     <ClCompile Include="..\src\accord\context.cc">
+      <Filter>src\accord</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\accord\editor.cc">
       <Filter>src\accord</Filter>
     </ClCompile>
     <ClCompile Include="..\src\accord\gl_helper.cc">
@@ -440,10 +440,10 @@
     <ClCompile Include="..\src\accord\input.cc">
       <Filter>src\accord</Filter>
     </ClCompile>
-    <ClCompile Include="..\src\accord\voxelizer.cc">
+    <ClCompile Include="..\src\accord\material.cc">
       <Filter>src\accord</Filter>
     </ClCompile>
-    <ClCompile Include="..\src\accord\editor.cc">
+    <ClCompile Include="..\src\accord\voxelizer.cc">
       <Filter>src\accord</Filter>
     </ClCompile>
   </ItemGroup>

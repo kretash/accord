@@ -49,5 +49,5 @@ bool Input::key_down(SDL_Keycode key) {
 	return m_downkeys[key];
 }
 
-mouse Input::get_mouse() { return m_mouse; }
-bool Input::quit() { return m_quit; }
+mouse Input::get_mouse() const { return m_mouse; }
+bool Input::quit() const { return m_quit; }

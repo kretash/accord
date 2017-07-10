@@ -5,28 +5,29 @@
 
 #include "accord/accord.h"
 
-class Camera;
-class Actor;
-
-class Hierarchy{
+class Hierarchy : public virtual Component {
 public:
-
-	static std::shared_ptr<Hierarchy> get_instance(){
-		static std::shared_ptr<Hierarchy> m_instance( new Hierarchy );
-		return m_instance;
-	}
-
 	~Hierarchy() {}
 
-	void add(Actor* d ){
+	void add(Actor* const d ) {
 		m_render_bin.push_back( d );
 	}
 
-protected:
-	Hierarchy(){}
-private:
+	std::vector<Actor*> get_render_bin() const {
+		return m_render_bin;
+	}
 
-	friend Camera;
+	virtual void awake() {}
+	virtual void start() {}
+	virtual void prepare() {}
+	virtual void update() {}
+	virtual void late_update() {}
+	virtual void shutdown() {}
+
+private:
+	Hierarchy(){}
+
+	friend Context;
 	std::vector<Actor*> m_render_bin;
 
 };

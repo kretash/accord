@@ -18,6 +18,9 @@
     <ClInclude Include="..\include\accord\accord.h">
       <Filter>include\accord</Filter>
     </ClInclude>
+    <ClInclude Include="..\include\accord\actor.h">
+      <Filter>include\accord</Filter>
+    </ClInclude>
     <ClInclude Include="..\include\accord\camera.h">
       <Filter>include\accord</Filter>
     </ClInclude>
@@ -39,7 +42,7 @@
     <ClInclude Include="..\include\accord\input.h">
       <Filter>include\accord</Filter>
     </ClInclude>
-    <ClInclude Include="..\include\accord\teapot.h">
+    <ClInclude Include="..\include\accord\material.h">
       <Filter>include\accord</Filter>
     </ClInclude>
     <ClInclude Include="..\include\accord\voxelizer.h">

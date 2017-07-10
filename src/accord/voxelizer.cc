@@ -25,7 +25,7 @@ void Voxelizer::generate( std::string other ) {
 		}
 	}
 
-	std::shared_ptr<Hierarchy> hierarchy = Hierarchy::get_instance();
+	//std::shared_ptr<Hierarchy> hierarchy = Hierarchy::get_instance();
 
 	for (int32_t i = 0; i < m_buffer.size(); ++i) {
 		for (int32_t e = 0; e < m_buffer[i].size(); ++e) {

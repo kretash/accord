@@ -5,6 +5,36 @@
 
 void Context::awake() {
 
+	int sdl_init_ = SDL_Init(SDL_INIT_VIDEO);
+	if (sdl_init_ < 0)
+		std::cout << "SDL error ->" << SDL_GetError() << std::endl;
+
+	m_window = SDL_CreateWindow("Accord", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED,
+		1280, 720, SDL_WINDOW_OPENGL);
+
+	m_gl_context = SDL_GL_CreateContext(m_window);
+	SDL_GL_SetAttribute(SDL_GL_CONTEXT_MAJOR_VERSION, 4);
+	SDL_GL_SetAttribute(SDL_GL_CONTEXT_MINOR_VERSION, 5);
+	SDL_GL_SetSwapInterval(1);
+
+	glewExperimental = GL_TRUE;
+	GLenum glew_init_;
+	if ((glew_init_ = glewInit()) != GLEW_OK) {
+		std::cout << glewGetErrorString(glew_init_) << std::endl;
+		assert(false && "GLEW INIT FAILED");
+	}
+
+#if DEBUG
+	SDL_GL_SetAttribute(SDL_GL_CONTEXT_FLAGS, SDL_GL_CONTEXT_DEBUG_FLAG);
+
+	glEnable(GL_DEBUG_OUTPUT);
+	glEnable(GL_DEBUG_OUTPUT_SYNCHRONOUS);
+	glDebugMessageCallback(opengl_error_callback, nullptr);
+	glDebugMessageControl(GL_DONT_CARE, GL_DONT_CARE, GL_DONT_CARE, 0, NULL, true);
+#endif
+
+	m_hierarchy = std::shared_ptr<Hierarchy>(new Hierarchy);
+	m_material_library = std::make_shared<MaterialLibrary>();
 	m_input = std::make_shared<Input>();
 	m_editor = std::make_shared<Editor>(m_window);
 
