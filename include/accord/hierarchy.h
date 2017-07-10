@@ -6,6 +6,7 @@
 #include "accord/accord.h"
 
 class Camera;
+class Actor;
 
 class Hierarchy{
 public:
@@ -17,7 +18,7 @@ public:
 
 	~Hierarchy() {}
 
-	void add(drawable* d ){
+	void add(Actor* d ){
 		m_render_bin.push_back( d );
 	}
 
@@ -26,6 +27,6 @@ protected:
 private:
 
 	friend Camera;
-	std::vector<drawable*> m_render_bin;
+	std::vector<Actor*> m_render_bin;
 
 };

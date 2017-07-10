@@ -399,6 +399,9 @@
     <ClInclude Include="..\include\tiny_obj_loader.h">
       <Filter>include</Filter>
     </ClInclude>
+    <ClInclude Include="..\include\accord\actor.h">
+      <Filter>include\accord</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\include\glm\detail\dummy.cpp">

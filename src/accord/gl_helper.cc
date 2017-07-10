@@ -5,6 +5,8 @@
 #define TINYOBJLOADER_IMPLEMENTATION
 #include "tiny_obj_loader.h"
 
+#include "accord/actor.h"
+
 struct obj_db {
 	obj_db() {}
 	~obj_db() {}
@@ -112,15 +114,15 @@ int32_t _create_program(std::string vs_shader, std::string fs_shader) {
 	return program;
 }
 
-void _load_obj(std::string obj, drawable* d) {
+void _load_obj(std::string obj, Mesh* m) {
 
 	for (int i = 0; i < loaded_obj.size(); ++i) {
 		if (loaded_obj[i].name == obj && loaded_obj[i].e_buffer != 0) {
 
-			d->e_buffer = loaded_obj[i].e_buffer;
-			d->v_buffer = loaded_obj[i].v_buffer;
-			d->e_count = loaded_obj[i].e_count;
-			d->vao = loaded_obj[i].vao;
+			m->m_index_id = loaded_obj[i].e_buffer;
+			m->m_vertex_id = loaded_obj[i].v_buffer;
+			m->m_index_count = loaded_obj[i].e_count;
+			m->m_vao_id = loaded_obj[i].vao;
 			return;
 		}
 	}
@@ -144,19 +146,19 @@ void _load_obj(std::string obj, drawable* d) {
 			for (size_t v = 0; v < fv; v++) {
 				tinyobj::index_t idx = shapes[s].mesh.indices[index_offset + v];
 
-				d->v_data.push_back(glm::vec3(
+				m->m_vertex_data.push_back(glm::vec3(
 					attrib.vertices[3 * idx.vertex_index + 0],
 					attrib.vertices[3 * idx.vertex_index + 1],
 					attrib.vertices[3 * idx.vertex_index + 2]
 				));
 
-				d->v_data.push_back(glm::vec3(
+				m->m_vertex_data.push_back(glm::vec3(
 					attrib.normals[3 * idx.normal_index + 0],
 					attrib.normals[3 * idx.normal_index + 1],
 					attrib.normals[3 * idx.normal_index + 2]
 				));
 
-				d->e_data.push_back((GLuint)(index_offset + v));
+				m->m_index_data.push_back((GLuint)(index_offset + v));
 			}
 			index_offset += fv;
 
@@ -174,23 +176,23 @@ void _load_obj(std::string obj, drawable* d) {
 	for (int i = 0; i < used_vao.size(); ++i) {
 		if (used_vao[i].ch1 == 3 && used_vao[i].ch2 == 3 && used_vao[i].ch3 == 0 &&
 			used_vao[i].ch4 == 0 && used_vao[i].ch5 == 0) {
-			d->vao = used_vao[i].vao;
+			m->m_vao_id = used_vao[i].vao;
 			found_vao = true;
 			break;
 		}
 	}
 
-	if (!found_vao)	glGenVertexArrays(1, &d->vao);
+	if (!found_vao)	glGenVertexArrays(1, &m->m_vao_id);
 
-	glBindVertexArray(d->vao);
+	glBindVertexArray(m->m_vao_id);
 
-	glGenBuffers(1, &d->v_buffer);
-	glBindBuffer(GL_ARRAY_BUFFER, d->v_buffer);
-	glBufferData(GL_ARRAY_BUFFER, d->v_data.size() * sizeof(glm::vec3), d->v_data.data(), GL_STATIC_DRAW);
+	glGenBuffers(1, &m->m_vertex_id );
+	glBindBuffer(GL_ARRAY_BUFFER, m->m_vertex_id);
+	glBufferData(GL_ARRAY_BUFFER, m->m_vertex_data.size() * sizeof(glm::vec3), m->m_vertex_data.data(), GL_STATIC_DRAW);
 
-	glGenBuffers(1, &d->e_buffer);
-	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, d->e_buffer);
-	glBufferData(GL_ELEMENT_ARRAY_BUFFER, d->e_data.size() * sizeof(uint32_t), d->e_data.data(), GL_STATIC_DRAW);
+	glGenBuffers(1, &m->m_index_id);
+	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, m->m_index_id);
+	glBufferData(GL_ELEMENT_ARRAY_BUFFER, m->m_index_data.size() * sizeof(uint32_t), m->m_index_data.data(), GL_STATIC_DRAW);
 
 	if (!found_vao) {
 		GLuint vertex_index = 0;
@@ -205,15 +207,15 @@ void _load_obj(std::string obj, drawable* d) {
 	glBindBuffer(GL_ARRAY_BUFFER, 0);
 	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
 
-	d->e_count = (GLuint)d->e_data.size();
+	m->m_index_count = (GLuint)m->m_index_data.size();
 
-	loaded_obj.push_back(obj_db(obj, d->v_buffer, d->e_buffer, d->e_count, d->vao));
+	loaded_obj.push_back(obj_db(obj, m->m_index_id, m->m_index_id, m->m_index_count, m->m_vao_id));
 
-	d->e_data.clear();
-	d->e_data.shrink_to_fit();
+	m->m_index_data.clear();
+	m->m_index_data.shrink_to_fit();
 
-	d->v_data.clear();
-	d->v_data.shrink_to_fit();
+	m->m_vertex_data.clear();
+	m->m_vertex_data.shrink_to_fit();
 }
 
 std::vector<glm::vec3> _load_obj(std::string obj) {

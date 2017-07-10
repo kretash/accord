@@ -83,7 +83,7 @@ public:
 	glm::mat4 get_view() { return m_view; }
 	glm::mat4 get_proj() { return m_proj; }
 
-	void render(GLint program);
+	void render();
 
 private:
 

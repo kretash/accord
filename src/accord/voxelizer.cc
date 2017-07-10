@@ -35,11 +35,11 @@ void Voxelizer::generate( std::string other ) {
 
 				drawable* cube = new drawable();
 
-				_load_obj( "cube.obj", cube );
+				//_load_obj( "cube.obj", cube );
 				cube->active = *c != 0;
 				cube->model = glm::translate(glm::mat4(1.0f), glm::vec3(i, e, o));
 
-				hierarchy->add(cube);
+				//hierarchy->add(cube);
 				m_cubes.push_back(cube);
 
 			}
