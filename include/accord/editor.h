@@ -28,4 +28,6 @@ protected:
 private:
 	SDL_Window*              m_window = nullptr;
 	std::shared_ptr<Context> m_context;
+  bool                     m_w_hierarchy = false;
+  bool                     m_w_inspector = false;
 };

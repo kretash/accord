@@ -1,5 +1,5 @@
 #include "accord/voxelizer.h"
-#include "accord/hierarchy.h"
+#include "accord/actor.h"
 
 void Voxelizer::generate( std::string other ) {
 	m_clone = _load_obj( other );
@@ -24,23 +24,18 @@ void Voxelizer::generate( std::string other ) {
 			}
 		}
 	}
-
-	//std::shared_ptr<Hierarchy> hierarchy = Hierarchy::get_instance();
-
+  
 	for (int32_t i = 0; i < m_buffer.size(); ++i) {
 		for (int32_t e = 0; e < m_buffer[i].size(); ++e) {
 			for (int32_t o = 0; o < m_buffer[i][e].size(); ++o) {
 
 				uint8_t* c = &m_buffer[i][e][o];
 
-				drawable* cube = new drawable();
+				Actor* cube = new Actor();
 
-				//_load_obj( "cube.obj", cube );
-				cube->active = *c != 0;
-				cube->model = glm::translate(glm::mat4(1.0f), glm::vec3(i, e, o));
-
-				//hierarchy->add(cube);
-				m_cubes.push_back(cube);
+				_load_obj( "cube.obj", cube->m_mesh );
+				cube->m_active = *c != 0;
+				cube->m_tranform->set_position( glm::vec3(i, e, o) );
 
 			}
 		}

@@ -48,6 +48,54 @@ public:
 int main(int argc, char** argv) {
 
 	auto context = Context::get_instance();
+  context->awake();
+  context->start();
+  context->prepare();
+
+  auto input = get_component<Input>();
+
+  ImGui_ImplSdlGL3_Init( context->get_window() );
+
+  while( true ){
+    input->update();
+
+
+    glClearColor( 0.5f, 0.5f, 1.0f, 1.0f );
+    glClear( GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT );
+    glEnable( GL_DEPTH_TEST );
+
+    ImGui_ImplSdlGL3_NewFrame( context->get_window() );
+
+    ImGui::BeginMainMenuBar();
+
+    if( ImGui::BeginMenu( "File" ) ) {
+      ImGui::EndMenu();
+    }
+    if( ImGui::BeginMenu( "Edit" ) ) {
+      if( ImGui::MenuItem( "Undo", "CTRL+Z" ) ) {}
+      if( ImGui::MenuItem( "Redo", "CTRL+Y", false, false ) ) {}  // Disabled item
+      ImGui::Separator();
+      if( ImGui::MenuItem( "Cut", "CTRL+X" ) ) {}
+      if( ImGui::MenuItem( "Copy", "CTRL+C" ) ) {}
+      if( ImGui::MenuItem( "Paste", "CTRL+V" ) ) {}
+      ImGui::EndMenu();
+    }
+
+    if( ImGui::BeginMenu( "Windows" ) ) {
+      bool m_w_hierarchy = ImGui::MenuItem( "Hierarchy" );
+      bool m_w_inspector = ImGui::MenuItem( "Inspector" );
+
+      ImGui::EndMenu();
+    }
+    ImGui::EndMainMenuBar();
+
+    bool yes = true;
+    ImGui::ShowTestWindow(&yes);
+
+    ImGui::Render();
+
+    SDL_GL_SwapWindow( context->get_window() );
+  }
 
 	std::shared_ptr<example> my_example = std::make_shared<example>();
 
