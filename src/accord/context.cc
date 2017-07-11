@@ -40,15 +40,21 @@ void Context::awake() {
 
 	for (Component* comp : m_components) comp->awake();
 
+	_call_user_function("awake");
+
 	running = true;
 }
 
 void Context::start() {
 	for (Component* comp : m_components) comp->start();
+
+	_call_user_function("start");
 }
 
 void Context::prepare() {
 	for (Component* comp : m_components) comp->prepare();
+
+	_call_user_function("prepare");
 }
 
 void Context::update() {
@@ -57,12 +63,20 @@ void Context::update() {
 
 	for (Component* comp : m_components) comp->update();
 
+	_call_user_function("update");
+
 	running = m_input->quit() == false;
 }
 
 void Context::late_update() {
 
 	for (Component* comp : m_components) comp->late_update();
+
+	_call_user_function("late_update");
+}
+
+void Context::render() {
+	_call_user_function("render");
 }
 
 void Context::swap() {
@@ -94,6 +108,8 @@ void Context::swap() {
 }
 
 void Context::shutdown() {
+
+	_call_user_function("shutdown");
 	running = false;
 	for (Component* comp : m_components) comp->shutdown();
 
